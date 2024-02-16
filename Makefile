@@ -1,6 +1,6 @@
 project_name = documentation-site
 
-DUNE = opam exec -- dune
+DUNE = dune
 
 .DEFAULT_GOAL := help
 
