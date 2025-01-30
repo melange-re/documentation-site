@@ -6,7 +6,8 @@
   ; melange doesn't include belt and dom anymore, including them below leads to
   ; `_build/default/playground/output/node_modules` to include the runtimes
   melange.belt
-  melange.dom)
+  melange.dom
+  routes)
  (modules) ; Empty, we just want to the js artifacts from the libraries
  (module_systems es6))
 
@@ -15,6 +16,15 @@
   %{bin:js_of_ocaml}
   (:some-cmi %{lib:reason-react:melange/react.cmi}))
  (target reason-react-cmijs.js)
+ (action
+  (bash
+   "find $(dirname %{some-cmi}) -name \"*.cmi\" -or -name \"*.cmj\" | xargs js_of_ocaml build-fs -o %{target}")))
+
+(rule
+ (deps
+  %{bin:js_of_ocaml}
+  (:some-cmi %{lib:routes:melange/routes.cmi}))
+ (target routes-cmijs.js)
  (action
   (bash
    "find $(dirname %{some-cmi}) -name \"*.cmi\" -or -name \"*.cmj\" | xargs js_of_ocaml build-fs -o %{target}")))
@@ -32,6 +42,7 @@
  (deps
   (alias playground-runtime-js)
   format.bc.js
-  reason-react-cmijs.js)
+  reason-react-cmijs.js
+  routes-cmijs.js)
  (action
   (echo "assets generated")))

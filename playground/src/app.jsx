@@ -1,5 +1,6 @@
 import "./App.css";
 import "../../_build/default/playground/reason-react-cmijs";
+import "../../_build/default/playground/routes-cmijs";
 import "../../_opam/bin/mel_playground.bc";
 import "../../_opam/bin/melange-cmijs";
 import "../../_build/default/playground/format.bc.js";

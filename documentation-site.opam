@@ -18,6 +18,7 @@ depends: [
   "reason" {>= "3.13.0"}
   "reason-react"
   "reason-react-ppx"
+  "routes"
   "ocamlformat"
   "js_of_ocaml"
   "cmarkit" {dev}
@@ -30,6 +31,7 @@ pin-depends: [
   [ "melange.dev" "git+https://github.com/melange-re/melange.git#4.0.1-52" ]
   [ "melange-playground.dev" "git+https://github.com/melange-re/melange.git#4.0.1-52" ]
   [ "cmarkit.dev" "git+https://github.com/dbuenzli/cmarkit.git#f37c8ea86fd0be8dba7a8babcee3682e0e047d91" ]
+  [ "routes.dev" "git+https://github.com/jchavarri/routes.git#57fb76038b429a6adb4e42aeef04cca7079fe157" ]
 ]
 build: [
   ["dune" "subst"] {dev}
